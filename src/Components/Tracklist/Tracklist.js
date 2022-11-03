@@ -1,9 +1,20 @@
-import React from "react";
+import './Tracklist.css'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Track } from '../Track/Track'
 
-export class TrackList extends React.Component{
-    render(){
+export class Tracklist extends React.Component {
+  render () {
+    return (
         <div className="TrackList">
-            {/* <!-- You will add a map method that renders a set of Track components  --> */}
+            {this.props.tracks.map((track, index) => {
+              return <Track track={track} key={index} id={track.id}/>
+            })}
         </div>
-    }
+    )
+  }
+}
+
+Tracklist.propTypes = {
+  tracks: PropTypes.array
 }
